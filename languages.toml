@@ -1,0 +1,11 @@
+
+[[language]]
+name = "rust"
+file-types = ["rs"]
+auto-format = true
+formatter = { command = "rustfmt" }
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }

@@ -1,0 +1,65 @@
+theme = "papercolor-dark"
+# theme = "papercolor-dark"
+# theme = "rose_pine_moon"
+# theme = "onedark"
+# theme = "tokyonight"
+# theme = "molokai"
+# theme = "mellow"
+# theme = "github_dark"
+
+[editor]
+line-number = "relative"
+mouse = true
+auto-completion = true
+auto-format = true
+auto-save = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "│"
+render = true
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
+center = ["version-control"]
+right = ["diagnostics", "selections", "register", "position", "file-encoding"]
+
+[keys.normal]
+# Move line up/down using A-k, A-j
+"A-k" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+"A-j" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_down",
+  "paste_before",
+]
+"A-left" = "goto_previous_buffer"
+"A-right" = "goto_next_buffer"
+
+# Config Mode
+[keys.normal."C-backspace"]
+r = [":config-reload", ":reload-all"]
+o = ":config-open"
+l = ":o ~/AppData/Roaming/helix/languages.toml"
