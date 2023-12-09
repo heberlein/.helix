@@ -13,6 +13,7 @@ mouse = true
 auto-completion = true
 auto-format = true
 auto-save = true
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
