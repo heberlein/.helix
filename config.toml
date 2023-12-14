@@ -3,9 +3,10 @@
 # theme = "rose_pine_moon"
 # theme = "onedark"
 # theme = "tokyonight"
-theme = "molokai"
+# theme = "molokai"
 # theme = "mellow"
 # theme = "github_dark"
+theme = "darcula-solid"
 
 [editor]
 line-number = "relative"
