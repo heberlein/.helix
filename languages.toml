@@ -13,4 +13,4 @@ formatter = { command = "taplo", args = ["fmt", "-"] }
 [[language]]
 name = "typst"
 auto-format = false # typstfmt can break things sometimes
-formatter = { command = "typstfmt" args = ["--output", "-"] }
+formatter = { command = "typstfmt", args = ["--output", "-"] }
