@@ -9,8 +9,22 @@ formatter = { command = "rustfmt" }
 name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["fmt", "-"] }
+language-servers = ["taplo"]
 
 [[language]]
 name = "typst"
-auto-format = false # typstfmt can break things sometimes
+auto-format = false                                            # typstfmt can break things sometimes
 formatter = { command = "typstfmt", args = ["--output", "-"] }
+
+[[language]]
+name = "python"
+language-servers = ["ruff", "pylsp"]
+
+
+[language-server.ruff]
+command = "ruff"
+args = ["server", "--preview"]
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]

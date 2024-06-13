@@ -62,7 +62,7 @@ A-j = [
 ]
 A-left = "goto_previous_buffer"
 A-right = "goto_next_buffer"
-A-o = ":config-open"
+# A-o = ":config-open"
 A-r = ":config-reload"
 A-f = ":format"
 
