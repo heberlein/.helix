@@ -1,11 +1,112 @@
+# languages.toml
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config]
+checkOnSave = {command = "clippy", extraArgs = ["--", "-W", "clippy::pedantic"]}
+cargo = {allFeatures = true}
+procMacro = {enable = true }
+
+[language-server.ruff-lsp]
+command = "ruff-lsp"
+config = {}
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+config = {}
+
+[language-server.yaml-ls]
+command = "yaml-language-server"
+args = ["--stdio"]
+config = {}
+
+[language-server.html-ls]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+config = {}
+
+[language-server.typescript-ls]
+command = "typescript-language-server"
+args = ["--stdio"]
+config = {}
+
+[language-server.json-ls]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+config = {}
 
 [[language]]
 name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
 file-types = ["rs"]
+# comment-tokens = "//"
+language-servers = ["rust-analyzer"]
+# formatter = { command = "rustfmt" }
+indent = { tab-width = 4, unit = "    " }
 auto-format = true
-formatter = { command = "rustfmt" }
+
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py"]
+shebangs = ["python"]
+# comment-tokens = "#"
+language-servers = ["ruff-lsp"]
+formatter = { command = "ruff", args = ["format", "-"] }
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
 
 [[language]]
 name = "toml"
+scope = "source.toml"
+injection-regex = "toml"
+file-types = ["toml"]
+# comment-tokens = "#"
+language-servers = ["taplo"]
+indent = { tab-width = 2, unit = "  " }
 auto-format = true
-formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+injection-regex = "yaml"
+file-types = ["yml", "yaml"]
+# comment-tokens = "#"
+language-servers = ["yaml-ls"]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[[language]]
+name = "html"
+scope = "text.html"
+injection-regex = "html"
+file-types = ["html"]
+language-servers = ["html-ls"]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "file.html"] }
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+injection-regex = "javascript"
+file-types = ["js"]
+shebangs = ["node"]
+# comment-tokens = "//"
+language-servers = ["typescript-ls"]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "file.js"] }
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[[language]]
+name = "json"
+scope = "source.json"
+injection-regex = "json"
+file-types = ["json"]
+language-servers = ["json-ls"]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "file.json"] }
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
